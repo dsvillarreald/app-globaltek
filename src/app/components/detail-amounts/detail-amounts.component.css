@@ -1,0 +1,12 @@
+.amount-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    
+}
+.amount-box {
+    width: 20%;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgb(215 215 215 / 50%);
+}

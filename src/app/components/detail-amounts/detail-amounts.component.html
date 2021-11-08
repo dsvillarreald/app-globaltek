@@ -1,0 +1,15 @@
+<div class="amount-content">
+    <div class="amount-box">
+        <p>IVA</p>
+        <p *ngIf="!showIvaSimple">{{ivaCount | currency: "COP"}}</p>
+        <p *ngIf="showIvaSimple">{{ivaCount}}</p>
+    </div>
+    <div class="amount-box">
+        <p>Total con IVA</p>
+        <p>{{overallWithIva | currency: "COP"}}</p>
+    </div>
+    <div class="amount-box">
+        <p>Total sin IVA</p>
+        <p >{{overallWithoutIva | currency: "COP"}}</p>
+    </div>
+</div>

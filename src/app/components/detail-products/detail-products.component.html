@@ -1,0 +1,18 @@
+<mat-accordion *ngIf="productList.length > 0">
+    <mat-expansion-panel *ngFor="let element of productList" (opened)="panelOpenState = true"(closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Producto: {{element.product}} - No. Item: {{element.item}} 
+        </mat-panel-title>
+        <mat-panel-description>
+            <strong *ngIf="!panelOpenState">{{element.totalPrice | currency: "COP"}}</strong>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Cantidad - {{element.amount}} {{element.amount === 1 ? 'unidad' : 'unidades'}}</p>
+      <p>Valor - {{ element.unitPrice | currency: "COP"}} c/u.</p>
+      <div class="footer-card">
+        <strong>{{ element.totalPrice | currency: "COP"}}</strong>
+        <button *ngIf="editable" mat-raised-button (click)="notifyItem(element.item)">Eliminar</button>
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>

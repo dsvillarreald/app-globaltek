@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+	<!-- Card column -->
+	<div fxFlex.gt-sm="100%" fxFlex="100">
+		<mat-card>
+			<app-create-bill *ngIf="action === 'create'"></app-create-bill>
+			<app-review-bill *ngIf="bill  && id" [billElenent]="bill"></app-review-bill>
+			<mat-card-content *ngIf="action === 'view' && !id">
+				<mat-card-title>Error Inesperado</mat-card-title>
+				<mat-card-subtitle> No se encontró ninguna coincidencia
+				  <code>verifique que el numero de id no sea erroneo</code> .</mat-card-subtitle>
+			</mat-card-content>
+		</mat-card>    
+	</div>
+</div>

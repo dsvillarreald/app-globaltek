@@ -1,0 +1,19 @@
+<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+    <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches"  >
+        <mat-nav-list appAccordion>
+            <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected" group="{{menuitem.state}}">
+                <a class="" appAccordionToggle (click)="redirect(menuitem.route, menuitem.action)" *ngIf="menuitem.type === 'link'">
+                    <mat-icon>{{ menuitem.icon }}</mat-icon> 
+                    <span>{{ menuitem.name }}</span> 
+                    <span fxFlex></span> 
+                    <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span> 
+                </a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="page-wrapper">
+            <div class="page-content">
+                    <router-outlet></router-outlet>
+            </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

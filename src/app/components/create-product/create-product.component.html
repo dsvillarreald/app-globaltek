@@ -1,0 +1,46 @@
+<form [formGroup]="createProduct">
+    <mat-vertical-stepper orientation="vertical" [linear]="'false'" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Número del Producto</ng-template>
+            <mat-form-field>
+              <mat-label>Item</mat-label>
+              <input type="number" matInput placeholder="Número consecutivo" 
+              formControlName="item" (blur)="validateForm()" required>
+            </mat-form-field>
+            <button mat-raised-button color="accent" matStepperNext>Sigiente</button>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Nombre del Producto</ng-template>
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="product" 
+              (blur)="validateForm()"  required>
+            </mat-form-field>
+            <button mat-raised-button color="accent" matStepperNext>Sigiente</button>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Cantidad de unidades</ng-template>
+            <mat-form-field>
+              <mat-label>Cantidad</mat-label>
+              <input type="number" matInput formControlName="amount" (blur)="validateForm()" required>
+            </mat-form-field>
+            <button mat-raised-button color="accent" matStepperNext>Sigiente</button>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Precio Unitario</ng-template>
+            <mat-form-field>
+              <mat-label>Precio</mat-label>
+              <input type="number" matInput formControlName="unitPrice" (blur)="validateForm()" required>
+            </mat-form-field>
+            <button mat-raised-button color="accent" matStepperNext>Sigiente</button>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Terminar</ng-template>
+          <div>
+            <button mat-button (click)="sentProduct(); stepper.reset();"
+              type="submit" color="primary" [disabled]="disabled">Agregar Producto</button>
+            <button mat-button (click)="stepper.reset()">Cancelar</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+</form>
