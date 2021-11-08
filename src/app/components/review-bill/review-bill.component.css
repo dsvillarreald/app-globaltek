@@ -1,0 +1,37 @@
+.with-30 {
+    width: 30%;
+}
+
+.with-50 {
+    width: 50%;
+}
+.info-bill {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0%;
+}
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date {
+    font-weight: 200;
+}
+.title {
+    color: #1e88e5;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.content-box {
+    padding: 4%;
+}
+.subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #1e88e5;
+    font-weight: 400;
+    margin-bottom: 2%;
+}

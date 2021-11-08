@@ -1,0 +1,74 @@
+<mat-card-content>
+	<mat-card-title class="title-container title">Crear Nueva Factura <span class="date">Fecha: &nbsp; {{startCreate  | date: 'dd/MM/yyyy'}}</span></mat-card-title>
+	<form [formGroup]="createBill">
+		<div class="content-inputs">
+			<div class="d-flex align-items-center row-content justify-content-between">
+				<div class="d-flex align-items-center with-30">
+					<mat-form-field >
+						<mat-label>No. Factura</mat-label>
+						<input type="number" matInput formControlName="billNumber" (blur)="validateForm()">
+					</mat-form-field>
+					<button  
+						(click)="generateBilNumber()" 
+						color="primary" mat-mini-fab
+						#tooltip="matTooltip"
+						matTooltip="Generar Número"
+						matTooltipPosition="above"
+					>
+						<mat-icon>text_format</mat-icon>
+					</button>
+				</div>
+				<div class="d-flex align-items-center with-30">
+					<mat-form-field >
+						<mat-label>Documento del cliente</mat-label>
+						<input type="number" matInput formControlName="clientDocument" (blur)="validateForm()">
+					</mat-form-field>
+				</div>
+				<div class="d-flex align-items-center with-30">
+					<mat-form-field >
+						<mat-label>Tipo de pago</mat-label>
+						<mat-select formControlName="paymentType" (blur)="validateForm()">
+							<mat-option *ngFor="let option of paymentTypeOptions" [value]="option.id">
+							  {{option.value}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				
+			</div>
+			<div class="d-flex align-items-center row-content justify-content-between">
+				<div class="d-flex align-items-center with-30">
+					<mat-form-field >
+						<mat-label>Nombre del cliente</mat-label>
+						<input matInput formControlName="clientName" (blur)="validateForm()">
+					</mat-form-field>
+				</div>
+				<div class="d-flex align-items-center with-30">
+					<mat-form-field >
+						<mat-label>Descuento (%)</mat-label>
+						<input type="number" matInput formControlName="discount" (blur)="validateForm()">
+					</mat-form-field>
+				</div>
+				<div class="d-flex align-items-center with-30">
+					<div  class="label-iva">IVA 19%</div>
+				</div>				
+			</div>
+		</div>
+		<div class="content-add-product">
+			<div class="with-30">
+				<div class="subtitle">Agregar Producto</div>
+				<app-create-product (notifiedProduct)="notifiedProduct($event)"></app-create-product>
+			</div>
+			<div class="with-50 scroll-area">
+				<div class="subtitle">Productos Agregados ({{productList.length}})</div>
+				<app-detail-products [productList]="productList" [editable]="true" (itemDelete)="deleteProduct($event)"></app-detail-products>
+			</div>
+		</div>
+		<app-detail-amounts *ngIf="productList.length > 0"
+			[discount]="discount" [iva]="iva" [products]="productList"></app-detail-amounts>
+		<div class="save-container">
+			<button mat-raised-button color="primary" type="submit" [disabled]="!enable" (click)="generateBill()">Crear Factura</button>
+		</div>
+	</form>
+	
+</mat-card-content>

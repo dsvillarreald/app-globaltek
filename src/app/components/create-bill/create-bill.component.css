@@ -1,0 +1,82 @@
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date {
+    font-weight: 200;
+}
+.button {
+    width: 15%;
+    height: 10%;
+    margin: 1% 1% 1% 2%;
+    text-align: center;
+}
+.row-content {
+    margin: 3% 0;
+    justify-content: space-between;
+}
+
+.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+}
+
+.with-30 {
+    width: 30%;
+}
+
+.with-50 {
+    width: 50%;
+}
+.content-add-product {
+    display: flex;
+    justify-content: space-evenly;
+}
+.content-inputs {
+    padding: 0 8%;
+}
+.scroll-area {
+    height: 466px;
+    overflow: auto;
+    padding: 0% 1%;
+}
+
+.scroll-area::-webkit-scrollbar {
+    display: none;
+}
+.scroll-area {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+.label-iva {
+    background-color: #d4edda;
+    width: 100%;
+    color: #737373;
+    text-align: center;
+    font-weight: 800;
+    border-color: #c3e6cb;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgb(215 215 215 / 50%);
+}
+.title {
+    color: #1e88e5;
+    padding: 2% 8% 0% 8%;
+}
+.subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #1e88e5;
+    font-weight: 400;
+    margin-bottom: 2%;
+}
+.save-container {
+    display: flex;
+    justify-content: center;
+    margin: 2% 0%;
+}

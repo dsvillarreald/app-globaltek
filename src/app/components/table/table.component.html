@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+	<div fxFlex.gt-sm="100%" fxFlex="100">
+		<mat-card>
+			<mat-card-content>
+			    <mat-card-title>Tabla de Facturaciones</mat-card-title>
+			</mat-card-content>
+			<mat-tab-group class="demo-tab-group">
+				<mat-tab label={{allTitle}}>
+                    <app-table-body *ngIf="!!dataSource" 
+						[dataSource]="dataSource" [displayedColumns]="displayedColumns"></app-table-body>
+				</mat-tab>
+                <mat-tab label={{creditTitle}}>
+                    <app-table-body *ngIf="!!dataSourceCredit" 
+						[dataSource]="dataSourceCredit" [displayedColumns]="displayedColumns"></app-table-body>
+				</mat-tab>
+                <mat-tab label={{countTitle}}>
+                    <app-table-body *ngIf="!!dataSourceCount" 
+						[dataSource]="dataSourceCount" [displayedColumns]="displayedColumns"></app-table-body>
+				</mat-tab>
+				<mat-tab label={{othersTitle}}>
+                    <app-table-body *ngIf="!!dataSourceOthers" 
+						[dataSource]="dataSourceOthers" [displayedColumns]="displayedColumns"></app-table-body>
+				</mat-tab>
+			</mat-tab-group>
+		</mat-card>    
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<mat-card-content>
+    <div class="content-box">
+        <mat-card-title class="title-container title">Factura No. {{billElenent.billNumber}} 
+            <span class="date">Fecha: &nbsp; {{billElenent.date  | date: 'dd/MM/yyyy'}}</span>
+        </mat-card-title>
+        <div class="info-bill">
+            <div class="with-30">
+                <div class="subtitle">Datos de la compra</div>
+                <p>A nombre de <strong>{{billElenent.clientName}}</strong>
+                    identificado <strong>C.C {{billElenent.clientDocument}}</strong></p>
+                <p>Tipo de pago: {{billElenent.paymentType | uppercase }}</p>
+                <p>Descuento: {{billElenent.discount}}{{billElenent.discount > 100 ? '' : '%'}}</p>
+            </div>
+            <div class="with-50 scroll-area">
+                <div class="subtitle">Productos ({{productList.length}})</div>
+                <app-detail-products [productList]="productList" [editable]="false"></app-detail-products>
+            </div>
+        </div>
+        <app-detail-amounts *ngIf="productList.length > 0" [onlyShowData]="billElenent"></app-detail-amounts>
+    </div>
+</mat-card-content>
+
